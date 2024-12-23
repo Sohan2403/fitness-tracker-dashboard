@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness Tracker Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            flex-direction: column;
+        }
+        .navbar {
+            background: #333;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .navbar ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        .navbar ul li {
+            margin: 0 15px;
+        }
+        .navbar ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            padding: 10px 20px;
+            position: relative;
+            transition: color 0.3s;
+        }
+        .navbar ul li a:hover,
+        .navbar ul li a.active {
+            color: #00bcd4;
+        }
+        .navbar ul li a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 100%;
+            height: 3px;
+            background: #00bcd4;
+            transform: scaleX(0);
+            transition: transform 0.3s ease-in-out;
+        }
+        .navbar ul li a:hover::after,
+        .navbar ul li a.active::after {
+            transform: scaleX(1);
+        }
+        .dashboard {
+            display: flex;
+            justify-content: space-around;
+            width: 80%;
+            margin-top: 40px;
+        }
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 250px;
+        }
+        .card h2 {
+            margin: 10px 0;
+        }
+        .card p {
+            font-size: 16px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="#" class="active">Home</a></li>
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Workouts</a></li>
+            <li><a href="#">Nutrition</a></li>
+            <li><a href="#">Settings</a></li>
+        </ul>
+    </nav>
+
+    <div class="dashboard">
+        <div class="card">
+            <h2>Steps</h2>
+            <p>10,234</p>
+        </div>
+        <div class="card">
+            <h2>Calories Burned</h2>
+            <p>780 kcal</p>
+        </div>
+        <div class="card">
+            <h2>Active Minutes</h2>
+            <p>63 min</p>
+        </div>
+    </div>
+
+    <script>
+        const links = document.querySelectorAll('.navbar a');
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelector('.active').classList.remove('active');
+                link.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
